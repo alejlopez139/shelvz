@@ -21,6 +21,7 @@
 #
 class Bookshelf < ApplicationRecord
   belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
+  belongs_to :owner, class_name: 'User', counter_cache: :shelf_count
   has_many :bookshelf_books
   has_many :books, through: :bookshelf_books
   #validates :name, presence: true

@@ -23,7 +23,7 @@
 #  fk_rails_...  (bookshelf_id => bookshelves.id)
 #
 class Book < ApplicationRecord
-  belongs_to :bookshelf
+  belongs_to :bookshelf, counter_cache: :book_count
   has_one :owner, through: :bookshelf
-  
+
 end
