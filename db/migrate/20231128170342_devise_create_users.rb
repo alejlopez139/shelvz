@@ -3,8 +3,9 @@
 class DeviseCreateUsers < ActiveRecord::Migration[7.0]
   def change
     create_table :users do |t|
+      enable_extension("citext")
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
+      t.citext :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -34,7 +35,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
 
       # Custom fields
       t.integer :role, default: 1
-      t.string :username
+      t.citext :username
       t.boolean :public, default: true
       t.integer :shelf_count, default: 0
 
