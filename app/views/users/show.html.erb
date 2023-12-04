@@ -1,9 +1,22 @@
 <h1>
-  <%= @user.username %>
+  <% if @user.shelf_count > 1%>
+  <%= @user.username %>'s shelves
+  <% else %>
+  <%= @user.username %>'s shelf
+  <% end %>
+</h1>
 
   <ul>
     <% @user.bookshelves.each do |bookshelf|%>
-      <li><%= bookshelf.name %></li>
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          <%= link_to bookshelf.name, bookshelf %>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+        </ul>
+      </div>
     <% end %>
   </ul>
-</h1>
