@@ -7,13 +7,27 @@ task({ :sample_data => :environment }) do
     User.destroy_all
   end
 
+  usernames = Array.new { Faker::Name.first_name }
+
+  usernames << "alice"
+  usernames << "bob"
+
+  usernames.each do |username|
+    User.create(
+      email: "#{username}@example.com",
+      password: "password",
+      username: username.downcase,
+      public: [true, false].sample,
+    )
+  end
+
   # Create 10 users
   10.times do
     user = User.create!(
       username: Faker::Internet.username,
       email: Faker::Internet.email,
       password: Faker::Internet.password,
-      public: true,
+      public: [true, false].sample,
       role: 1
     )
     Bookshelf.create!(
