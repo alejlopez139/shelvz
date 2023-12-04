@@ -8,7 +8,7 @@
 
   <ul>
     <% @user.bookshelves.each do |bookshelf|%>
-      <div class="card" style="width: 18rem;">
+      <div class="card mb-3" style="width: 18rem;">
         <div class="card-header">
           <%= link_to bookshelf.name, bookshelf %>
         </div>
