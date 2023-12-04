@@ -1,7 +1,11 @@
 
   <p>
-    <strong>Public:</strong>
-    <%= bookshelf.public %>
+    <strong>Public:</strong> 
+    <% if(bookshelf.public?) %>
+      <%= "Yes" %>
+    <% else %>
+      <%= "No" %>
+    <% end %>
   </p>
 
   <p>
@@ -18,4 +22,3 @@
     <strong>Name:</strong>
     <%= bookshelf.name %>
   </p>
-
