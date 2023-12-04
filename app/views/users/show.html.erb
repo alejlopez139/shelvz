@@ -1,3 +1,9 @@
 <h1>
   <%= @user.username %>
+
+  <ul>
+    <% @user.bookshelves.each do |bookshelf|%>
+      <li><%= bookshelf.name %></li>
+    <% end %>
+  </ul>
 </h1>
