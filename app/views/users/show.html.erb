@@ -5,17 +5,16 @@
   <%= @user.username %>'s shelf
   <% end %>
 </h1>
-
   <ul>
-    <% @user.bookshelves.each do |bookshelf|%>
+    <% @bookshelves.each do |bookshelf|%>
       <div class="card mb-3" style="width: 18rem;">
         <div class="card-header">
           <%= link_to bookshelf.name, bookshelf %>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
+          <li class="list-group-item"> Number of books: <%= bookshelf.book_count%> </li>
+          <li class="list-group-item">Created this shelf: <%= bookshelf.created_at.strftime("%b%e %Y %I:%M%p") %> </li>
+          <li class="list-group-item">Last updated: <%= bookshelf.updated_at.strftime("%b%e %Y %I:%M%p") %></li>
         </ul>
       </div>
     <% end %>
