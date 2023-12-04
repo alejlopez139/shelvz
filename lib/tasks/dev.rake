@@ -55,7 +55,8 @@ task({ :sample_data => :environment }) do
       notes: Faker::Lorem.paragraph(sentence_count: 2),
       public: [true, false].sample,
       fav: [true, false].sample,
-      rec: [true, false].sample
+      rec: [true, false].sample,
+      cover: Faker::LoremFlickr.image(size: "300x300", search_terms: ['book'])
     )
   end
 
