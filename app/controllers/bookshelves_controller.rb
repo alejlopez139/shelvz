@@ -8,6 +8,10 @@ class BookshelvesController < ApplicationController
 
   # GET /bookshelves/1 or /bookshelves/1.json
   def show
+    @breadcrumbs = [
+      {content: "#{current_user.username}'s Bookshelves", href: user_path(current_user.username)},
+      {content: @bookshelf.name, href: bookshelves_path(@bookshelf)},
+    ]
   end
 
   # GET /bookshelves/new
@@ -17,6 +21,12 @@ class BookshelvesController < ApplicationController
 
   # GET /bookshelves/1/edit
   def edit
+    currentbookshelf = Bookshelf.find(params[:id])
+    @breadcrumbs = [
+      {content: "#{current_user.username}'s Bookshelves", href: user_path(current_user.username)},
+      {content: @bookshelf.name, href: bookshelf_path(currentbookshelf)},
+      {content: "Editing #{@bookshelf.name}"},
+    ]
   end
 
   # POST /bookshelves or /bookshelves.json
