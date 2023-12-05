@@ -1,24 +1,115 @@
+<p>
+  <strong>Public<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20", style="margin-left:10px"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M4 8.25a1 1 0 1 0 0-2a1 1 0 0 0 0 2Zm0 2a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z"/><path d="M4.05 11a1.5 1.5 0 0 0-1.5 1.5V14a1 1 0 0 1-2 0v-1.5a3.5 3.5 0 0 1 7 0V14a1 1 0 1 1-2 0v-1.5a1.5 1.5 0 0 0-1.5-1.5ZM16 8.25a1 1 0 1 1 0-2a1 1 0 0 1 0 2Zm0 2a3 3 0 1 1 0-6a3 3 0 0 1 0 6Z"/><path d="M15.95 11a1.5 1.5 0 0 1 1.5 1.5V14a1 1 0 1 0 2 0v-1.5a3.5 3.5 0 0 0-7 0V14a1 1 0 1 0 2 0v-1.5a1.5 1.5 0 0 1 1.5-1.5Z"/><path d="M10.05 13.75a2.5 2.5 0 0 0-2.5 2.5v1.5a1 1 0 0 1-2 0v-1.5a4.5 4.5 0 0 1 9 0v1.5a1 1 0 1 1-2 0v-1.5a2.5 2.5 0 0 0-2.5-2.5Z"/><path d="M10 11a1 1 0 1 0 0-2a1 1 0 0 0 0 2Zm0 2a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z"/></g></svg>:</strong>
+  <% if(bookshelf.public?) %>
+    <%= "Yes" %>
+  <% else %>
+    <%= "No" %>
+  <% end %>
+</p>
 
-  <p>
-    <strong>Public<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20", style="margin-left:10px"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M4 8.25a1 1 0 1 0 0-2a1 1 0 0 0 0 2Zm0 2a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z"/><path d="M4.05 11a1.5 1.5 0 0 0-1.5 1.5V14a1 1 0 0 1-2 0v-1.5a3.5 3.5 0 0 1 7 0V14a1 1 0 1 1-2 0v-1.5a1.5 1.5 0 0 0-1.5-1.5ZM16 8.25a1 1 0 1 1 0-2a1 1 0 0 1 0 2Zm0 2a3 3 0 1 1 0-6a3 3 0 0 1 0 6Z"/><path d="M15.95 11a1.5 1.5 0 0 1 1.5 1.5V14a1 1 0 1 0 2 0v-1.5a3.5 3.5 0 0 0-7 0V14a1 1 0 1 0 2 0v-1.5a1.5 1.5 0 0 1 1.5-1.5Z"/><path d="M10.05 13.75a2.5 2.5 0 0 0-2.5 2.5v1.5a1 1 0 0 1-2 0v-1.5a4.5 4.5 0 0 1 9 0v1.5a1 1 0 1 1-2 0v-1.5a2.5 2.5 0 0 0-2.5-2.5Z"/><path d="M10 11a1 1 0 1 0 0-2a1 1 0 0 0 0 2Zm0 2a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z"/></g></svg>:</strong> 
-    <% if(bookshelf.public?) %>
-      <%= "Yes" %>
-    <% else %>
-      <%= "No" %>
+<p>
+  <strong>Owner:</strong>
+  <%= bookshelf.owner.username %>
+</p>
+
+<p>
+  <strong>Book count:</strong>
+  <%= bookshelf.book_count %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= bookshelf.name %>
+</p>
+<!--
+  <ul>
+    <% bookshelf.books.each do |book| %>
+       <div class="card mb-3" style="width: 18rem;">
+        <div class="card-header">
+          <%= link_to bookshelf.name, bookshelf %>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> Title: <%= book.title %> </li>
+          <li class="list-group-item"> Author: <%= book.author %> </li>
+          <li class="list-group-item">Do you recommend it?<%= book.rec %></li>
+        </ul>
+      </div>
     <% end %>
-  </p>
-
-  <p>
-    <strong>Owner:</strong>
-    <%= bookshelf.owner.username %>
-  </p>
-
-  <p>
-    <strong>Book count:</strong>
-    <%= bookshelf.book_count %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= bookshelf.name %>
-  </p>
+  </ul> -->
+  <!--
+<% bookshelf.books.each do |book| %>
+  <div class="card" style="width: 18rem; margin-bottom: 10px">
+  <img src=<%= book.cover %> class="card-img-top" alt="book cover">
+  <div class="card-body">
+    <h5 class="card-title"><%= book.title%></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Author: <%= book.author %></li>
+    <li class="list-group-item">Reccomendation: <strong><%= book.rec ? "yes" : "no" %></strong></li>
+    <li class="list-group-item">Favorite: <strong><%= book.fav ? "yes" : "no" %></strong></li>
+    <li class="list-group-item">Can others see this book on your shelf <strong><%= book.fav ? "yes" : "no" %></strong></li>
+  </ul>
+  </div>
+<%end%> -->
+<!--
+<% bookshelf.books.each do |book| %>
+  <div class="card" style="width: 35rem; margin-bottom: 10px">
+    <img src=<%= book.cover %> class="card-img-top" alt="book cover">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="card-title"><%= book.title%></h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Author:</li>
+            <li class="list-group-item">Do you recommend: </li>
+            <li class="list-group-item">Is this a favorite: </li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong><%= book.author %></strong></li>
+            <li class="list-group-item"><strong><%= book.fav ? "yes" : "no" %></strong></li>
+            <li class="list-group-item"><strong><%= book.fav ? "yes" : "no" %></strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>-->
+<div class="row">
+  <% bookshelf.books.each do |book| %>
+    <div class="col-md-6">
+      <div class="card" style="width: 35rem; margin-bottom: 10px">
+      <div class="card-header bg-transparent border-success"><h5><%=book.title%></h5></div>
+        <img src=<%= book.cover %> class="card-img-top" alt="book cover">
+        <div class="card-body">
+          <div class="row">
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Author:</li>
+                <li class="list-group-item">Do you recommend: </li>
+                <li class="list-group-item">Is this a favorite: </li>
+                <li class="list-group-item">Date added to shelf: </li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong><%= book.author %></strong></li>
+                <li class="list-group-item"><strong><%= book.fav ? "Yes" : "No" %></strong></li>
+                <li class="list-group-item"><strong><%= book.fav ? "Yes" : "No" %></strong></li>
+                <li class="list-group-item"><strong><%= book.created_at.strftime("%b%e %Y %I:%M%p")%></strong></li>
+              </ul>
+            </div>
+            <div class="card-footer bg-transparent border-success">Footer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
