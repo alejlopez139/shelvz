@@ -2,3 +2,8 @@
 
 <%= render "form", bookshelf: @bookshelf %>
 
+<div>
+  <strong> Destroy this bookshelf? This action cannot be undone! </strong>
+  </br>
+  <%= button_to "Destroy this bookshelf", @bookshelf, method: :delete, style: "background-color:red"%>
+  </div>
