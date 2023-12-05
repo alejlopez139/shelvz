@@ -31,10 +31,14 @@
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, style: "margin-bottom: 10px" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit style: "margin-bottom: 20px"%>
+  </div>
+
+  <div>
+  <%= button_to "Destroy this bookshelf", @bookshelf, method: :delete, style: "background-color:red"%>
   </div>
 <% end %>
