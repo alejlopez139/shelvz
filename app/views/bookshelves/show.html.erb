@@ -1,3 +1,7 @@
+<!-- Name of the bookshelf is shown under the breadcrumbsbut above the first edit link -->
+<h1>
+<%= @bookshelf.name%>
+</h1>
 <div>
   
   <%= link_to "Edit this bookshelf", edit_bookshelf_path(@bookshelf) %>
@@ -7,7 +11,7 @@
 
 <%= render @bookshelf %>
 
+<!--  -->
 <div>
-  
   <%= link_to "Edit this bookshelf", edit_bookshelf_path(@bookshelf) %> | <%=link_to "Back to your bookshelves", user_path(current_user.username) %>
 </div>
