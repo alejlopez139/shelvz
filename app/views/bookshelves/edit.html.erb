@@ -1,7 +1,9 @@
 <h1>Editing bookshelf</h1>
 
 <%= render "form", bookshelf: @bookshelf %>
-
+<div style = "padding-bottom: 40px">
+  <%= link_to "Back to bookshelf", @bookshelf%> 
+</div>
 <div>
   <strong> Destroy this bookshelf? This action cannot be undone! </strong>
   </br>
