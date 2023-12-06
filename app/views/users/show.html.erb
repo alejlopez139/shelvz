@@ -1,10 +1,12 @@
 <h1>
+
   <% if @user.shelf_count > 1%>
-  <%= @user.username %>'s shelves
+    <%= @user.username %>'s shelves
   <% else %>
-  <%= @user.username %>'s shelf
+    <%= @user.username %>'s shelf
   <% end %>
-</h1>
+  <% if @user.shelf_count > 1%>
+  </h1>
   <ul>
     <% @bookshelves.each do |bookshelf|%>
       <div class="card mb-3" style="width: 18rem;">
@@ -19,3 +21,6 @@
       </div>
     <% end %>
   </ul>
+<% else %>
+  <h2> You have no shelves yet! </h2>
+<%end%>
