@@ -10,7 +10,7 @@
 <div class="row">
   <% bookshelf.books.each do |book| %>
     <div class="col-md-6">
-      <div class="card" style="width: 35rem; margin-bottom: 10px">
+      <div class="card" style="width: 35rem; margin-bottom: 20px">
       <div class="card-header bg-transparent border-success"><h5><%=book.title%></h5></div>
         <img src=<%= book.cover %> class="card-img-top" alt="book cover">
         <div class="card-body">
@@ -28,13 +28,15 @@
             <div class="col-6">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><strong><%= book.author %></strong></li>
-                <li class="list-group-item"><strong><%= book.fav ? "Yes" : "No" %></strong></li>
+                <li class="list-group-item"><strong><%= book.rec ? "Yes" : "No" %></strong></li>
                 <li class="list-group-item"><strong><%= book.fav ? "Yes" : "No" %></strong></li>
                 <li class="list-group-item"><strong><%= book.created_at.strftime("%b%e %Y %I:%M%p")%></strong></li>
               </ul>
             </div>
-            <div class="card-footer bg-transparent border-success">Footer</div>
+            <div class="card-footer bg-transparent border-success">Notes: </br><%= book.notes %></div>
+            <div class="card-footer bg-transparent border-success"><%= button_to "Edit this book", edit_book_path(book.id), method: :get %></div>
           </div>
+          
         </div>
       </div>
     </div>
