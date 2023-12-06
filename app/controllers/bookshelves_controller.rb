@@ -17,6 +17,7 @@ class BookshelvesController < ApplicationController
   # GET /bookshelves/new
   def new
     @bookshelf = Bookshelf.new
+    @owner_id = current_user.id
   end
 
   # GET /bookshelves/1/edit
