@@ -17,6 +17,10 @@ class BookshelvesController < ApplicationController
   # GET /bookshelves/new
   def new
     @bookshelf = Bookshelf.new
+    @breadcrumbs = [
+      {content: "#{current_user.username}'s Bookshelves", href: user_path(current_user.username)},
+      {content: "Creating new bookshelf"},
+    ]
     
   end
 

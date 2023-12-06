@@ -24,6 +24,6 @@ class Bookshelf < ApplicationRecord
   belongs_to :owner, class_name: 'User', counter_cache: :shelf_count
   has_many :bookshelf_books
   has_many :books, dependent: :destroy
-  #validates :name, presence: true
+  validates :name, presence: true
   #validates :owner_id, presence: true
 end
