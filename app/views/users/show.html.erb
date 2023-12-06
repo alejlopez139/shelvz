@@ -14,22 +14,36 @@
 </div>
 
 <% if @user.shelf_count >= 1%>
-  <ul>
+<div class="row"> 
     <% @bookshelves.each do |bookshelf|%>
-      <div class="card mb-3" style="width: 18rem;">
-        <div class="card-header">
-          <%= link_to bookshelf.name, bookshelf %>
+       <div class="col-md-6">
+      <div class="card" style="width: 35rem; margin-bottom: 20px">
+      <div class="card-header bg-transparent border-success"><h5><%=bookshelf.name%></h5></div>
+        <div class="card-body">
+          <div class="row">
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Number of books:</li>
+                <li class="list-group-item">Created this shelf: </li>
+                <li class="list-group-item">Last updated: </li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong><%= bookshelf.book_count%></strong></li>
+                <li class="list-group-item"><strong><%= bookshelf.created_at.strftime("%b%e %Y %I:%M%p") %></strong></li>
+                <li class="list-group-item"><strong>Last updated: <%= bookshelf.updated_at.strftime("%b%e %Y %I:%M%p") %></strong></li>
+                <li class="list-group-item"><%= button_to "Edit your bookshelf", edit_bookshelf_path(bookshelf.id), method: :get %></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"> Number of books: <%= bookshelf.book_count%> </li>
-          <li class="list-group-item">Created this shelf: <%= bookshelf.created_at.strftime("%b%e %Y %I:%M%p") %> </li>
-          <li class="list-group-item">Last created: <%= bookshelf.created_at.strftime("%b%e %Y %I:%M%p") %></li>
-          <li class="list-group-item">Last updated: <%= bookshelf.updated_at.strftime("%b%e %Y %I:%M%p") %></li>
-          <li class="list-group-item"><%= button_to "Edit your bookshelf", edit_bookshelf_path(bookshelf.id), method: :get %></li>
-        </ul>
       </div>
+    </div>
     <% end %>
-  </ul>
+    </div>
 <% else %>
   <h2> You have no shelves yet! </h2>
 <%end%>
