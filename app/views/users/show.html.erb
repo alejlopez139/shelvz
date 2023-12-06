@@ -34,10 +34,10 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><strong><%= bookshelf.book_count%></strong></li>
                 <li class="list-group-item"><strong><%= bookshelf.created_at.strftime("%b%e %Y %I:%M%p") %></strong></li>
-                <li class="list-group-item"><strong>Last updated: <%= bookshelf.updated_at.strftime("%b%e %Y %I:%M%p") %></strong></li>
-                <li class="list-group-item"><%= button_to "Edit your bookshelf", edit_bookshelf_path(bookshelf.id), method: :get %></li>
+                <li class="list-group-item"><strong><%= bookshelf.updated_at.strftime("%b%e %Y %I:%M%p") %></strong></li>
               </ul>
             </div>
+            <div class="card-footer bg-transparent border-success"><%= button_to "Edit your bookshelf", edit_bookshelf_path(bookshelf.id), method: :get %></div>
           </div>
         </div>
       </div>
