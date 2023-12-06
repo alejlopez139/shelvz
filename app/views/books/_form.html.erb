@@ -11,47 +11,34 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :author, style: "display: block" %>
-    <%= form.text_field :author %>
-  </div>
-
-  <div>
-    <%= form.label :bookshelf_id, style: "display: block" %>
-    <%= form.text_field :bookshelf_id %>
-  </div>
-
-  <div>
-    <%= form.label :cover, style: "display: block" %>
-    <%= form.text_field :cover %>
-  </div>
-
-  <div>
-    <%= form.label :public, style: "display: block" %>
-    <%= form.check_box :public %>
-  </div>
-
-  <div>
-    <%= form.label :notes, style: "display: block" %>
-    <%= form.text_area :notes %>
-  </div>
-
-  <div>
-    <%= form.label :fav, style: "display: block" %>
-    <%= form.check_box :fav %>
-  </div>
-
-  <div>
-    <%= form.label :rec, style: "display: block" %>
-    <%= form.check_box :rec %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <div class="col-md-6">
+      <div class="card" style="width: 35rem; margin-bottom: 20px">
+      <div class="card-header bg-transparent border-success"><h5><%=book.title%></h5></div>
+        <img src=<%= book.cover %> class="card-img-top" alt="book cover">
+        <div class="card-body">
+          <div class="row">
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Author:</li>
+                <li class="list-group-item">Do you recommend: </li>
+                <li class="list-group-item">Is this a favorite: </li>
+                <li class="list-group-item">Is this book public to others: </li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong><%= book.author %></strong></li>
+                <li class="list-group-item"><%= form.check_box :rec %></li>
+                <li class="list-group-item"><%= form.check_box :fav %> </li>
+                <li class="list-group-item"><%= form.check_box :public %> </li>
+              </ul>
+            </div>
+            <div class="card-footer bg-transparent border-success">Notes: </br><%= form.text_area :notes %></div>
+            <div class="card-footer bg-transparent border-success"><%= form.submit %> </div>
+          </div>
+        </div>
+      </div>
+    </div>
 <% end %>
