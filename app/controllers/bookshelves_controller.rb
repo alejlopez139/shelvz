@@ -17,12 +17,13 @@ class BookshelvesController < ApplicationController
   # GET /bookshelves/new
   def new
     @bookshelf = Bookshelf.new
-    @owner_id = current_user.id
+    
   end
 
   # GET /bookshelves/1/edit
   def edit
     currentbookshelf = Bookshelf.find(params[:id])
+    @bookshelf.owner_id = current_user.id
     @breadcrumbs = [
       {content: "#{current_user.username}'s Bookshelves", href: user_path(current_user.username)},
       {content: @bookshelf.name, href: bookshelf_path(currentbookshelf)},
@@ -33,6 +34,7 @@ class BookshelvesController < ApplicationController
   # POST /bookshelves or /bookshelves.json
   def create
     @bookshelf = Bookshelf.new(bookshelf_params)
+    @bookshelf.owner_id = current_user.id
 
     respond_to do |format|
       if @bookshelf.save
