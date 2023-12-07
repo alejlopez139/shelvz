@@ -18,7 +18,7 @@
     <% @bookshelves.each do |bookshelf|%>
        <div class="col-md-6">
       <div class="card" style="width: 35rem; margin-bottom: 20px">
-      <div class="card-header bg-transparent border-success"><h5><%=bookshelf.name%></h5></div>
+      <div class="card-header bg-transparent border-success"><h5> <%= link_to bookshelf.name, bookshelf_path(bookshelf) %></h5></div>
         <div class="card-body">
           <div class="row">
           </div>
