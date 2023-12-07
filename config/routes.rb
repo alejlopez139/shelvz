@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :bookshelves
   devise_for :users
 
+  get "/searchbyauthor" => "books#searchByAuthor"
   get "/:username" => "users#show", as: :user
+  
 end
