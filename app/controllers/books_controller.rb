@@ -67,6 +67,8 @@ class BooksController < ApplicationController
     @title_query = params[:title_query]
     @author_query = params[:author_query]
     @isbn_query = params[:isbn_query]
+    
+    @books = search_books(params[:title_query])
   end
 
   private
@@ -78,5 +80,14 @@ class BooksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def book_params
       params.require(:book).permit(:title, :author, :bookshelf_id, :cover, :public, :notes, :fav, :rec)
+    end
+
+    def search_books(title)
+      require 'net/http'
+      require 'uri'
+      base_url = "http://openlibrary.org/search.json?"
+      uri = URI("#{base_url}title=#{CGI.escape(title)}")
+      response = Net::HTTP.get(uri)
+      JSON.parse(response)
     end
 end

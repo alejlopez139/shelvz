@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # root "articles#index"
-  root "bookshelves#index"
+  root "books#searchBooks"
   resources :books
   resources :bookshelves
   devise_for :users

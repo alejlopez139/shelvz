@@ -1,1 +1,6 @@
 <h1>Title query: <%=@title_query%> <br/> Author query: <%=@author_query%> <br/> ISBN query: <%= @isbn_query%></h1>
+
+<% @books['docs'].each do |book| %>
+  <h2><%= book['title'] %></h2>
+  <p><%= book['author_name']&.join(', ') %></p>
+<% end %>
