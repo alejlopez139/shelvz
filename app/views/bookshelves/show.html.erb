@@ -4,7 +4,7 @@
 </h1>
 <div>
   
-  <%= link_to "Edit this bookshelf", edit_bookshelf_path(@bookshelf) %> <%= button_to "Add a Book", searchbooks_path%>
+  <%= link_to "Edit this bookshelf", edit_bookshelf_path(@bookshelf) %> | <%= button_to "Add a Book", searchbooks_path, method: :get%>
 
   
 </div>

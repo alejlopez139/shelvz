@@ -1,4 +1,4 @@
-<h1>Title query: <%=@title_query%> <br/> Author query: <%=@author_query%> <br/> ISBN query: <%= @isbn_query%></h1>
+<h1>Title lookup: "<%=@title_query%>" </h1>
 
 <div class="row">
   <% @books['docs'].each do |book| %>
@@ -24,6 +24,7 @@
                 <li class="list-group-item"><strong><%= book['first_publish_year'] %></strong></li>
               </ul>
             </div>
+            <div class="card-footer bg-transparent border-success"><%= button_to "Add to bookshelf", books_path(book: { title: book['title'], cover: "http://covers.openlibrary.org/b/id/#{book['cover_i']}-M.jpg", author: book['author_name']&.join(', '), publish_year: book['first_publish_year'], openlibID: book['edition_key'].first }), method: :post %></div>
           </div>
         </div>
       </div>

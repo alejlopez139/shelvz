@@ -11,12 +11,14 @@
     </div>
   <% end %>
 
+  <%= form.select :bookshelf_id, current_user.bookshelves.collect { |b| [b.name, b.id] }, prompt: 'Select a bookshelf' %>
+
   <div class="col-md-6">
     <div class="card" style="width: 35rem; margin-bottom: 20px">
       <div class="card-header bg-transparent border-success">
         <h5><%=book.title%></h5>
       </div>
-      <img src=<%= book.cover %> class="card-img-top" alt="book cover">
+      <%=image_tag book.cover %>
       <div class="card-body">
         <div class="row">
         </div>
@@ -48,10 +50,6 @@
     </div>
   </div>
 
-  <div style = "padding-top: 40px">
-    <strong> Destroy this book? This action cannot be undone! </strong>
-  </br>
-  <%= button_to "Destroy this book", @book, method: :delete, style: "background-color:red" %>
-</div>
+  
 
 <% end %>
