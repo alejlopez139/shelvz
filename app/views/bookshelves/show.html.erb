@@ -4,7 +4,7 @@
 </h1>
 <div>
   
-  <%= link_to "Edit this bookshelf", edit_bookshelf_path(@bookshelf) %>
+  <%= link_to "Edit this bookshelf", edit_bookshelf_path(@bookshelf) %> | <%= link_to "Add a Book", searchbooks_path%>
 
   
 </div>
@@ -13,5 +13,5 @@
 
 <!-- options -->
 <div>
-  <%= link_to "Edit this bookshelf", edit_bookshelf_path(@bookshelf) %> | <%=link_to "Back to your bookshelves", user_path(current_user.username) %>
+  <%= link_to "Edit this bookshelf", edit_bookshelf_path(@bookshelf) %> | <%=link_to "Back to your bookshelves", user_path(current_user.username) %> | <%= link_to "Add a Book", searchbooks_path%>
 </div>

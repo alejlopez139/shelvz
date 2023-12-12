@@ -7,7 +7,10 @@
 #  cover        :string
 #  fav          :boolean          default(FALSE)
 #  notes        :text
+#  openlibID    :string
 #  public       :boolean          default(TRUE)
+#  publish_date :string
+#  publisher    :string
 #  rec          :boolean          default(FALSE)
 #  title        :string
 #  created_at   :datetime         not null

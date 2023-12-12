@@ -1,6 +1,31 @@
 <h1>Title query: <%=@title_query%> <br/> Author query: <%=@author_query%> <br/> ISBN query: <%= @isbn_query%></h1>
 
-<% @books['docs'].each do |book| %>
-  <h2><%= book['title'] %></h2>
-  <p><%= book['author_name']&.join(', ') %></p>
-<% end %>
+<div class="row">
+  <% @books['docs'].each do |book| %>
+    <div class="col-md-6">
+      <div class="card" style="width: 35rem; margin-bottom: 20px">
+      <div class="card-header bg-transparent border-success"><h5><%=book['title']%></h5></div>
+        <%= image_tag "http://covers.openlibrary.org/b/id/#{book['cover_i']}-M.jpg" if book['cover_i'] %>
+        <div class="card-body">
+          <div class="row">
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Author:</li>
+                <li class="list-group-item">Open Library Link:</li>
+                <li class="list-group-item">Year first published:</li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong><%= book['author_name']&.join(', ') %></strong></li>
+                <li class="list-group-item"><strong><%= link_to 'Open Library Link', "https://openlibrary.org/works/#{book['edition_key'].first}" if book['key'] %></strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
