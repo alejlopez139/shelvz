@@ -12,6 +12,7 @@
 #  publish_date :string
 #  publisher    :string
 #  rec          :boolean          default(FALSE)
+#  subtitle     :string
 #  title        :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null

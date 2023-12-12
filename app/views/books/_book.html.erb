@@ -11,7 +11,9 @@
           <div class="row">
             <div class="col-6">
               <ul class="list-group list-group-flush">
+              <li class="list-group-item">Subtitle:</li>
                 <li class="list-group-item">Author:</li>
+                <li class="list-group-item">Year first published: </li>
                 <li class="list-group-item">Do you recommend: </li>
                 <li class="list-group-item">Is this a favorite: </li>
                 <li class ="list-group-item">Is this book public to others: </li>
@@ -20,7 +22,9 @@
             </div>
             <div class="col-6">
               <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong><%= book.subtitle %></strong></li>
                 <li class="list-group-item"><strong><%= book.author %></strong></li>
+                <li class="list-group-item"><strong><%= book.published %></strong></li>
                 <li class="list-group-item"><strong><%= book.rec ? "Yes" : "No" %></strong></li>
                 <li class="list-group-item"><strong><%= book.fav ? "Yes" : "No" %></strong></li>
                 <li class="list-group-item"><strong><%= book.public ? "Yes" : "No" %></strong></li>

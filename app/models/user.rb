@@ -29,5 +29,14 @@ class User < ApplicationRecord
 
   has_many :bookshelves, foreign_key: 'owner_id', dependent: :destroy
   has_many :books, through: :bookshelves
+  validates :username, presence: true
+
+  after_create :create_default_bookshelf
+
+  private
+
+  def create_default_bookshelf
+    self.bookshelves.create(name: 'My First Bookshelf')
+  end
   
 end
