@@ -36,7 +36,7 @@ class User < ApplicationRecord
   private
 
   def create_default_bookshelf
-    self.bookshelves.create(name: 'My First Bookshelf')
+    self.bookshelves.create(name: 'Bookshelf')
   end
   
 end

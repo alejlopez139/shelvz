@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_12_080601) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_12_090707) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_12_080601) do
     t.citext "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_bookshelves_on_name", unique: true
+    t.index "lower((name)::text)", name: "index_bookshelves_on_name"
     t.index ["owner_id"], name: "index_bookshelves_on_owner_id"
   end
 

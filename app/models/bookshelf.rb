@@ -12,7 +12,7 @@
 #
 # Indexes
 #
-#  index_bookshelves_on_name      (name) UNIQUE
+#  index_bookshelves_on_name      (lower((name)::text))
 #  index_bookshelves_on_owner_id  (owner_id)
 #
 # Foreign Keys

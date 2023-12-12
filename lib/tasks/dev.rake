@@ -38,7 +38,7 @@ task({ :sample_data => :environment }) do
   end
 
   users = User.all
-  users.times do
+  users.count.times do
     Bookshelf.create!(
       public: [true, false].sample,
       owner: users.sample,
