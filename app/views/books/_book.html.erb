@@ -1,0 +1,42 @@
+<div id="<%= dom_id book %>">
+
+  <div class="col-md-6">
+    <div class="card" style="width: 35rem; margin-bottom: 20px">
+      <div class="card-header bg-transparent border-success">
+        <h5><%=book.title%></h5>
+      </div>
+      <%#image_tag book.cover %>
+      <div class="card-body">
+        <div class="row">
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Subtitle:</li>
+              <li class="list-group-item">Author:</li>
+              <li class="list-group-item">Year first published: </li>
+              <li class="list-group-item">Do you recommend: </li>
+              <li class="list-group-item">Is this a favorite: </li>
+              <li class ="list-group-item">Is this book public to others: </li>
+              <li class="list-group-item">Date added to shelf: </li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong><%= book.subtitle %></strong></li>
+              <li class="list-group-item"><strong><%= book.author %></strong></li>
+              <li class="list-group-item"><strong><%= book.publish_date %></strong></li>
+              <li class="list-group-item"><strong><%= book.rec ? "Yes" : "No" %></strong></li>
+              <li class="list-group-item"><strong><%= book.fav ? "Yes" : "No" %></strong></li>
+              <li class="list-group-item"><strong><%= book.public ? "Yes" : "No" %></strong></li>
+              <li class="list-group-item"><strong><%= book.created_at.strftime("%b%e %Y %I:%M%p")%></strong></li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-success">Notes: </br><%= book.notes %></div>
+        <div class="card-footer bg-transparent border-success"><%= button_to "Edit your book", edit_book_path(book.id), method: :get %></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,33 @@
+<h1>Title lookup: "<%= @title_query %>" </h1>
+
+<div class="row">
+  <% @books['docs'].each do |book| %>
+    <div class="col-md-6">
+      <div class="card" style="width: 35rem; margin-bottom: 20px">
+      <div class="card-header bg-transparent border-success"><h5><%=book['title']%></h5></div>
+        <%= image_tag "http://covers.openlibrary.org/b/id/#{book['cover_i']}-M.jpg" if book['cover_i'] %>
+        <div class="card-body">
+          <div class="row">
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Author:</li>
+                <li class="list-group-item">Open Library Link:</li>
+                <li class="list-group-item">Year first published:</li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong><%= book['author_name']&.join(', ') %></strong></li>
+                <li class="list-group-item"><strong><%= link_to 'Open Library Link', "https://openlibrary.org/works/#{book['edition_key'].first}" if book['key'] %></strong></li>
+                <li class="list-group-item"><strong><%= book['first_publish_year'] %></strong></li>
+              </ul>
+            </div>
+            <div class="card-footer bg-transparent border-success"><%= button_to "Add to bookshelf", books_path(book: { title: book['title'], cover: "http://covers.openlibrary.org/b/id/#{book['cover_i']}-M.jpg", author: book['author_name']&.join(', '), publish_date: book['first_publish_year'], openlibID: book['edition_key'].first }), method: :post %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

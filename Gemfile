@@ -6,6 +6,10 @@ ruby "3.2.1"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
+gem 'json'
+
+gem 'simple_form'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -48,6 +52,8 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem 'jquery-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -80,10 +86,11 @@ gem "dotenv-rails"
 gem "faker"
 gem "htmlbeautifier"
 gem "http"
-gem "sqlite3", "~> 1.4"
+
 gem "table_print"
 
 group :development do
+  gem "sqlite3", "~> 1.4"
   gem "annotate"
   gem "better_errors"
   gem "binding_of_caller"
@@ -107,3 +114,9 @@ group :test do
   gem "rspec-html-matchers"
   gem "webmock"
 end
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "sentry-ruby", "~> 5.15"
+
+gem "sentry-rails", "~> 5.15"

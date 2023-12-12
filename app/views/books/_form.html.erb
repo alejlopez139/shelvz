@@ -1,0 +1,60 @@
+<%= form_with(model: @book, local:true) do |form| %>
+  <% if book.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+        <% book.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.select :bookshelf_id, current_user.bookshelves.collect { |b| [b.name, b.id] }, { prompt: 'Select a bookshelf' }, required: true %>
+
+  <div class="col-md-6">
+    <div class="card" style="width: 35rem; margin-bottom: 20px">
+      <div class="card-header bg-transparent border-success">
+        <h5><%= @book.title %></h5>
+        <%= form.hidden_field :title %>
+      </div>
+      <%=image_tag book.cover %>
+      <%=form.hidden_field :cover%>
+      <div class="card-body">
+        <div class="row">
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Author:</li>
+              <li class="list-group-item">Year first published::</li>
+              <li class="list-group-item">Do you recommend: </li>
+              <li class="list-group-item">Is this a favorite: </li>
+              <li class="list-group-item">Is this book public to others: </li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <ul class="list-group list-group-flush">
+              
+              <li class="list-group-item"><strong><%= book.author %></strong></li>
+              <li class="list-group-item"><strong><%= book.publish_date %></strong></li>
+              <li class="list-group-item"><%= form.check_box :rec %></li>
+              <li class="list-group-item"><%= form.check_box :fav %> </li>
+              <li class="list-group-item"><%= form.check_box :public %> </li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-success">
+            <p>Notes:</p>
+            <%= form.text_area :notes, class: "card-text", style: "width: 100%; height: 50%;" %>
+          </div>
+          <%= form.hidden_field :author%>
+          <%= form.hidden_field :publish_date %>
+          <div class="card-footer bg-transparent border-success"><%= form.submit %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>

@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
   # root "articles#index"
+  root "books#searchBooks"
+  
+  resources :books
+  resources :bookshelves
+  devise_for :users
+
+
+
+  get "/searchbyauthor" => "books#searchByAuthor"
+  get "/searchbooks" => "books#searchBooks"
+  get "/searchbookresults" => "books#searchBookResults"
+  get "/:username" => "users#show", as: :user
+
+  
 end
