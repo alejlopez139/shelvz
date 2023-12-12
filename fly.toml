@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for shelvz on 2023-12-06T19:05:11Z
+# fly.toml app configuration file generated for shelvz on 2023-12-12T15:46:36Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -25,3 +25,6 @@ console_command = "/rails/bin/rails console"
 [[statics]]
   guest_path = "/rails/public"
   url_prefix = "/"
+
+  [deploy]
+  release_command = "bin/rails db:prepare"
