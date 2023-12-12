@@ -60,7 +60,8 @@ class BooksController < ApplicationController
   def searchByAuthor
   end
 
-  def searchOptions
+  def searchBooks
+    @books = Book.where("author LIKE ?", "%#{params[:author]}%")
   end
 
   private
