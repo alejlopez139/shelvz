@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get "/searchbyauthor" => "books#searchByAuthor"
   get "/searchbooks" => "books#searchBooks"
+  get "/searchbookresults" => "books#searchBookResults"
   get "/:username" => "users#show", as: :user
   
 end

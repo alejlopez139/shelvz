@@ -61,7 +61,12 @@ class BooksController < ApplicationController
   end
 
   def searchBooks
-    @books = Book.where("author LIKE ?", "%#{params[:author]}%")
+  end
+
+  def searchBookResults
+    @title_query = params[:title_query]
+    @author_query = params[:author_query]
+    @isbn_query = params[:isbn_query]
   end
 
   private
