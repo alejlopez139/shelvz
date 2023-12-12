@@ -64,8 +64,8 @@ class BooksController < ApplicationController
   end
 
   def searchBookResults
-    author_query = params[:author_query]
-  if author_query.blank?
+    title_query = params[:title_query]
+  if title_query.blank?
     flash[:error] = "Title query can't be blank"
     redirect_to searchbooks_path
   else
