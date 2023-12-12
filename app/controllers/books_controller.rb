@@ -82,11 +82,18 @@ class BooksController < ApplicationController
       params.require(:book).permit(:title, :author, :bookshelf_id, :cover, :public, :notes, :fav, :rec)
     end
 
-    def search_books(title)
+    def search_books(title = nil, author = nil, isbn = nil)
       require 'net/http'
       require 'uri'
       base_url = "http://openlibrary.org/search.json?"
-      uri = URI("#{base_url}title=#{CGI.escape(title)}")
+      query = ""
+      query += "title=#{CGI.escape(title)}" if title
+      query += "&" if title && (author || isbn)
+      query += "author=#{CGI.escape(author)}" if author
+      query += "&" if author && isbn
+      query += "isbn=#{CGI.escape(isbn)}" if isbn
+      return {} if query.empty?
+      uri = URI("#{base_url}#{query}")
       response = Net::HTTP.get(uri)
       JSON.parse(response)
     end
