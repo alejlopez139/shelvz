@@ -69,7 +69,7 @@ class BookshelvesController < ApplicationController
     @bookshelf.destroy
 
     respond_to do |format|
-      format.html { redirect_to bookshelves_url, notice: "Bookshelf was successfully destroyed." }
+      format.html { redirect_to user_path(current_user.username), notice: 'Bookshelf was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

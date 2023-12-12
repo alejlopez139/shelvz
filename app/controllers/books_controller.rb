@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    @books = Book.order(created_at: :desc)
   end
 
   # GET /books/1 or /books/1.json
@@ -69,6 +69,7 @@ class BooksController < ApplicationController
     flash[:error] = "Title query can't be blank"
     redirect_to searchbooks_path
   else
+    @title_query = params[:title_query]
     @books = search_books(params[:title_query])
   end
   end
@@ -81,7 +82,7 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title, :author, :bookshelf_id, :cover, :public, :notes, :fav, :rec)
+      params.require(:book).permit(:title, :author, :bookshelf_id, :cover, :public, :notes, :fav, :rec, :publish_date, :openlibID)
     end
 
     def search_books(title)

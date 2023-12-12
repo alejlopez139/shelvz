@@ -30,4 +30,8 @@ class Book < ApplicationRecord
   belongs_to :bookshelf, counter_cache: :book_count
   has_one :owner, through: :bookshelf
 
+  validates :title, presence: true
+  validates :author, presence: true
+  validates :publish_date, presence: true
+
 end
