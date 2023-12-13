@@ -30,6 +30,8 @@ This is a web application that allows users to manage and share their book colle
 
 ### Running Locally
 
+ Fork this repo, then ```bundle install```
+
  Run ```rake sample_data``` to get a sample of user profiles with bookshelves and some randomly generated books.
  
  Run ```bin/dev``` to start you development enviroment and server
