@@ -8,25 +8,35 @@ This is a web application that allows users to manage and share their book colle
 - **User Following**: Users have the ability to create accounts, allowing them to keep up-to-date with their latest book additions.
 - **Book Groups**: Users can create groups for their books, such as "Wishlist", "Currently Reading", or "Favorites". This helps in better organization and categorization of their collection.
 
-## Getting Started
+## Pain Point
 
+ I love reading, I might have too many books. I can't keep track of all the books I have right now and I need help.
+
+ I have wishlists across a bunch of different websites. It's a pain to keep track of them all.
+
+ ## Solution
+
+ We can keep track of our books digitally by searching for them using the OpenLibrary API.
+
+ I can create different bookshelves and even create a bookshelf for my "wishlist".
+
+## Getting Started
 
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+ * Ruby 3.2.2
+ * Rails 7.1.2
 
-### Installing
+### Running Locally
 
-A step by step series of examples that tell you how to get a development environment running.
+ Run ```rake sample_data``` to get a sample of user profiles with bookshelves and some randomly generated books.
+ Run ```bin/dev``` to start you development enviroment and server
+ You can check the rake file if you want to use a test profile, or you can just sign up and create a profile for yourself
 
 ## Running the tests
 
 Explain how to run the automated tests for this system.
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system.
 
 ## Built With
 
