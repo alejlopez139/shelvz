@@ -31,7 +31,9 @@ This is a web application that allows users to manage and share their book colle
 ### Running Locally
 
  Run ```rake sample_data``` to get a sample of user profiles with bookshelves and some randomly generated books.
+ 
  Run ```bin/dev``` to start you development enviroment and server
+ 
  You can check the rake file if you want to use a test profile, or you can just sign up and create a profile for yourself
 
 ## Running the tests
