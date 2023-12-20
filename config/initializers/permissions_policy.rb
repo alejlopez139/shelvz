@@ -9,3 +9,5 @@
 #   f.fullscreen  :self
 #   f.payment     :self, "https://secure.example.com"
 # end
+
+# Some policies could help
